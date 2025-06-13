@@ -12,6 +12,7 @@
 - pip install -r requirements.txt
 - python -m patchright install chromium
 - python api_solver.py
-- 新开一个 PowerShell窗口，执行 python main2.py
+- 新开一个 PowerShell窗口，执行 venv\Scripts\activate，然后执行 python main2.py
+- 客户端使用 http://127.0.0.1:8000/v1/models 获取模型列表，API KEY 从 client_api_keys.json 获取
 
 来源：[【AI平权-授人以渔 18】tenbin2api 每日免费80次高级模型，都给我站起来蹬！](https://linux.do/t/topic/718649)
