@@ -4,6 +4,5 @@ argparse
 patchright
 camoufox[geoip]
 fastapi
-websocket
 websocket-client
 uvicorn
