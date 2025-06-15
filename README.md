@@ -24,6 +24,10 @@
 ``` bash
 git clone https://github.com/javalover123/tenbin2api.git
 cd tenbin2api
+# build docker image
 docker build -t javalover123/tenbin2api:latest .
+# deploy
 docker run -d --name tenbin2api -p 8111:8000 -p 5001:5000 -e SESSION_ID=XXXX javalover123/tenbin2api:latest
+# check key
+docker exec -it tenbin2api cat client_api_keys.json
 ```
