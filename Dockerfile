@@ -96,6 +96,6 @@ CMD ["sh", "-c", \
     ". $VIRTUAL_ENV/bin/activate && \
     python update_session_id.py && \
     cat tenbin.json && \
-    python api_solver.py --headless HEADLESS --user-agent $useragent --browser_type chrome && \
+    python api_solver.py --headless HEADLESS --useragent $useragent --browser_type chrome && \
     python main2.py && \
     cat client_api_keys.json"]
