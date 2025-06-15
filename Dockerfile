@@ -18,6 +18,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         tzdata \
         libgtk-3-dev \
+        wget \
         curl \
         locales \
         python3 \
