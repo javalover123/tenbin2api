@@ -75,12 +75,17 @@ RUN . $VIRTUAL_ENV/bin/activate && \
 COPY . .
 
 # 安装其他依赖（如chromium）
-RUN . $VIRTUAL_ENV/bin/activate && \
-     python -m camoufox fetch  && \
+#RUN . $VIRTUAL_ENV/bin/activate && \
+#     python -m camoufox fetch  && \
     #python -m playwright install chromium &&\
-    pip cache purge && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+#    pip cache purge && \
+#    apt-get clean && \
+#    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt-get install -y ./google-chrome-stable_current_amd64.deb && \
+    rm ./google-chrome-stable_current_amd64.deb
 
 # 暴露端口
 EXPOSE 3389 5000 8000
@@ -90,6 +95,6 @@ CMD ["sh", "-c", \
     ". $VIRTUAL_ENV/bin/activate && \
     python update_session_id.py && \
     cat tenbin.json && \
-    python api_solver.py --headless HEADLESS --browser_type camoufox && \
+    python api_solver.py --headless HEADLESS --browser_type chrome && \
     python main2.py && \
     cat client_api_keys.json"]
