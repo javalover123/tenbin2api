@@ -1,5 +1,5 @@
 # 使用 ubuntu 基础镜像
-FROM docker.linkos.org/library/ubuntu:latest
+FROM ubuntu:latest
 
 # 设置环境变量
 ENV DEBIAN_FRONTEND=noninteractive \
