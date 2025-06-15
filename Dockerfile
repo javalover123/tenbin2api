@@ -82,7 +82,7 @@ COPY . .
 #    pip cache purge && \
 #    apt-get clean && \
 #    rm -rf /var/lib/apt/lists/*
-
+ENV useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 RUN apt-get update && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -y ./google-chrome-stable_current_amd64.deb && \
@@ -96,6 +96,6 @@ CMD ["sh", "-c", \
     ". $VIRTUAL_ENV/bin/activate && \
     python update_session_id.py && \
     cat tenbin.json && \
-    python api_solver.py --headless HEADLESS --browser_type chrome && \
+    python api_solver.py --headless HEADLESS --user-agent $useragent --browser_type chrome && \
     python main2.py && \
     cat client_api_keys.json"]
